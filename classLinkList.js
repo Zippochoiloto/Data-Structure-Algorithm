@@ -9,7 +9,6 @@ class LinkedList {
     constructor(head = null) {
         this.head = head
         this.tail = null;
-        this.size = 0;
     }
 
     getSize() {
@@ -62,13 +61,11 @@ class LinkedList {
             newNode.next = this.head;
             this.head = newNode
         }
-        this.size++;
         return this;
     }
 
     pushBack(item) {
         let node = new ListNode(item);
-        this.size++;
         if (this.head == null) {
             this.head = node;
         } else {
@@ -82,11 +79,14 @@ class LinkedList {
 
     insert(index, val) {
         const newNode = new ListNode(val);
-    if (index > this.size) return;
+    if (index > this.getSize()){
+        return 'out of range'
+
+    }
     if (index <= 0) {
       return this.addAtHead(val);
     }
-    if (index === this.size) {
+    if (index === this.getSize()) {
       return this.addAtTail(val);
     }
   
@@ -96,18 +96,46 @@ class LinkedList {
     }
     newNode.next = cur.next ? cur.next : null;
     cur.next = newNode;
-    this.size++;
     return this;
     }
+
+    removeFrom(index) 
+{ 
+    if (index > 0 && index > this.size) 
+        return -1; 
+    else { 
+        var curr, prev, it = 0; 
+        curr = this.head; 
+        prev = curr; 
+  
+        // deleting first element 
+        if (index === 0) { 
+            this.head = curr.next; 
+        } else { 
+            // iterate over the list to the 
+            // position to removce an element 
+            while (it < index) { 
+                it++; 
+                prev = curr; 
+                curr = curr.next; 
+            } 
+  
+            // remove the element 
+            prev.next = curr.next; 
+        } 
+        // return the remove element 
+        return curr.element; 
+    } 
+} 
 }
 
 let node1 = new ListNode(3)
 let node2 = new ListNode(5)
+let node3 = new ListNode(6)
+let node4 = new ListNode(7)
 node1.next = node2
+node2.next = node3
+node3.next = node4
 let list = new LinkedList(node1)
-console.log(list.pushFront(4))
-console.log(list.pushBack(5))
-console.log(list.insert(1,200))
+console.log(list.insert(3,200))
 
-console.log(list.valueAt(1))
-console.log(list.getSize())
