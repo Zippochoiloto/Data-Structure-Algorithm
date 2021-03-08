@@ -20,30 +20,9 @@ let reduceArray = function(arr) {
     let length = arr.length ;
     arr[5] = arr[6]
     length-- ;
-    console.log(arr)
-    console.log(arr.length)
     return length ;
 }
 
-var removeDuplicates = function(nums) {
-    if(nums.length === 0) {
-        return 0
-    }
-    let result = 1, i = 0, j = 1;
-    
-    while(i < nums.length && j < nums.length) {
-        if(nums[j] === nums[i]) {
-            j++;
-        } else {
-            result += 1;
-            i++;
-            nums[i] = nums[j];
-            j++;
-        }
-    }
-    console.log(nums)
-    return result;
-};
 
 let deleteAlgrorithm = function(nums) {
     if (nums == null) {
@@ -84,58 +63,19 @@ var preorderTraversal = function(root) {
     return result;
   };
 
-function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
-    }
+// function TreeNode(val, left, right) {
+//     this.val = (val===undefined ? 0 : val)
+//     this.left = (left===undefined ? null : left)
+//     this.right = (right===undefined ? null : right)
+//     }
 
-    let a = new TreeNode(1,null,2)
-    let b = new TreeNode()
-// console.log(preorderTraversal(a))
+//     let a = new TreeNode(1,null,2)
+//     let b = new TreeNode()
+// // console.log(preorderTraversal(a))
 
 // console.log(deleteAlgrorithm(a))
 
-function merge(arr1, arr2) {
-    let result = []
-    let i = 0;
-    let j = 0 ;
 
-    while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] > arr2[j]) {
-            result.push(arr2[j]);
-            j++;
-
-        } else {
-            result.push(arr1[i])
-            i++;
-        }
-    }
-
-    while(i < arr1.length) {
-        result.push(arr1[i])
-        i++
-    }
-
-    while(j < arr2.length) {
-        result.push(arr2[j])
-        j++
-    }
-    console.log('result', result)
-    return result
-}
-
-function mergeSort(arr) {
-    if (arr.length <= 1) return arr;
-
-    let halfPoint = Math.ceil(arr.length / 2)
-
-    let firstHalf = mergeSort(arr.splice(0, halfPoint))
-
-    let secondHalf = mergeSort(arr.splice(-halfPoint))
-
-    return merge(firstHalf, secondHalf)
-}
 
 
 
@@ -160,15 +100,7 @@ const pivot = (arr, start, end) => {
 
 }
 
-const quickSort = (arr, start = 0, end = arr.length) => {
-    let pivotIndex = pivot(arr, start,end)
 
-    if (start >= end) return arr;
-    quickSort(arr, start, pivotIndex);
-    quickSort(arr, pivotIndex + 1, end);
-
-    return arr
-}
 
 // console.log(quickSort([1,5,3,4]))
 
@@ -218,4 +150,35 @@ var findTargetSumWays = function(nums, S) {
     };
 
 
-console.log(findTargetSumWays(nums1, s))
+// console.log(findTargetSumWays(nums1, s))
+
+const twoSum = function(nums, target) {
+    const map = {}
+
+    for (let i = 0; i < nums.length; i ++) {
+        const another = target - nums[i]
+        if (another in map) {
+            return [map[another], i]
+        }
+        map[nums[i]] = i
+    }
+
+   
+
+    return null
+}
+
+// console.log(twoSum([2,7,11,15,4,5], 9))
+
+var isIsomorphic = function(s, t) {
+    var obj = {};
+
+    for(var i = 0; i < s.length; i++){
+        if(!obj['s' + s[i]]) obj['s' + s[i]] = t[i];
+        if(!obj['t' + t[i]]) obj['t' + t[i]] = s[i];
+        if(t[i] != obj['s' + s[i]] || s[i] != obj['t' + t[i]]) return false;
+    }
+    return true;
+};
+
+console.log(isIsomorphic('test', 'haph'))
