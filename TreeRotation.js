@@ -12,4 +12,24 @@ function leftRotation(node) {
     const grandparent = node.parent
 }
 
-function 
+function swapParentChild(oldChild, newChild, parent) {
+    if (parent) {
+        const side = oldChild.isParentRightChild ? 'right' : 'left'
+        //  this set parent chihld AND also
+
+        parent[side] = newChild
+    } else {
+        newChild.parent = null
+    }
+}
+
+function rightRotation(node) {
+    const newParent = node.left;
+    const grandparent = node.parent;
+
+    swapParentChild(node, newParent,grandparent);
+
+    newParent.right = node;
+    node.left = undefined
+    return newParent
+}

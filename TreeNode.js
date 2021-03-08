@@ -139,13 +139,6 @@ class BinarySearchTree {
         }
         return false
     }
-
-    // inOrderTraversal (node = this.root) {
-    //     if (this.root.left) {yield this.inOrderTraversal(node.left)}
-    //     yield node;
-
-    //     if (node.right) {yield this.inOrderTraversal(node.right)}
-    // }
 }
 
 function* foo(index) {
