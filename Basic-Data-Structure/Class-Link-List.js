@@ -1,3 +1,13 @@
+// Linked list is a linear data structure, in which the elements are not stored at contiguous memory location. These elements are links using pointers
+// •	Single linked list contain nodes which have a data fields as well as ‘next’ field 
+ 
+// •	Double linked list: Each nodes contains, beside the next node link, a second link field pointing to the ‘previous’ node in the sequence. The two links may be called ‘next or prev’
+ 
+// •	Circular linked list: In the last node of a list, the link field often contains a null reference, a special value is used to indicate the lack of further nodes.. A less common convention is to make it point to the first node of the list
+ 
+
+
+
 class ListNode {
     constructor(data) {
         this.data = data

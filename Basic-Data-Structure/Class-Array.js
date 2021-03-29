@@ -1,3 +1,5 @@
+// 1.	Array is a data structure that contains group of elements. Typically these elements are all of the same data type
+
 class CustomArray {
     createdArray = new Array();
     constructor(capacity) {
