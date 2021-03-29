@@ -1,3 +1,8 @@
+// (1)	Traverse the left subtree, 
+// (2)	Visit the root
+// (3)	Traverse the right subtree
+
+
 function inorderTraversal(root) {
     const stack = [];
     const res = [];
@@ -14,4 +19,11 @@ function inorderTraversal(root) {
     }
 
     return res;
+}
+
+function IterativeTraversal(root) {
+    if (!root) return;
+    IterativeTraversal(root.left)
+    console.log(root.val);
+    IterativeTraversal(root.right)
 }

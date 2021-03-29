@@ -1,3 +1,8 @@
+// (1)	Traverse the left subtree,
+// (2)	Traverse the right subtree,
+// (3)	Visit the root
+
+
 var postOrderTraversal = function(root) {
     if (!root) return [];
 
@@ -13,4 +18,12 @@ var postOrderTraversal = function(root) {
     }
 
     return result;
+}
+
+function postOrderIterative(root) {
+    if (!root) return
+    
+    postOrderIterative(root.left)
+    postOrderIterative(root.right)
+    console.log(root.val)
 }
