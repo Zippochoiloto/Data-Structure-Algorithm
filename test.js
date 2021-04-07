@@ -181,4 +181,12 @@ var isIsomorphic = function(s, t) {
     return true;
 };
 
-console.log(isIsomorphic('test', 'haph'))
+const test = () => {
+    const a = [1,2,3,4]
+    for (let value of a) {
+        console.log('value: ' + value)
+    }
+}
+
+console.log(test())
+
