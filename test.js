@@ -181,12 +181,63 @@ var isIsomorphic = function(s, t) {
     return true;
 };
 
-const test = () => {
-    const a = [1,2,3,4]
-    for (let value of a) {
-        console.log('value: ' + value)
+// const test = () => {
+//     const a = [1,2,3,4]
+//     for (let value of a) {
+//         console.log('value: ' + value)
+//     }
+// }
+
+// console.log(test())
+
+var searchInsert = function(nums, target) {
+    let low = 0
+    let high = nums.length - 1
+    
+    while (low <= high) {
+        let mid = Math.floor((low + high) /2)
+        if (nums[mid] === target) return mid
+        if (nums[mid] > target) high = mid - 1
+        if (nums[mid] < target) low = mid + 1
+        
     }
+    console.log('low:', low)
+    return low
+};
+
+// searchInsert([1,2,4,6], 5)
+
+const convertString = (input) => {
+    const res = []
+    let checkNumber = (inputNum) => {
+        if (inputNum === ' ' || inputNum === '-') return false
+        if (Number.isInteger(+inputNum)) return true
+        return false
+    }
+
+    for (const el of input) {
+        if (checkNumber(el) ) {
+            // if (res.length > 0 && res.length % 4 == 3) res.push('-')
+            // res.push(el)
+            res.push(el)
+        }
+    }
+
+    if (res.length % 3 == 0) {
+        for (let i = 0; i < res.length; i++) {
+            if (i % 3 == 0 && i > 0) res.splice(i,0, '-')
+        }
+        console.log('res', res)
+    }
+
+    if (res.length % 3 == 1) {
+        for (let i = 0; i < res.length; i++) {
+            if (i % 3 == 0  && i < res.length -5) res.splice(i,0, '')
+            if (i >= res.length - 5 && i % 2 == 0) res.splice(i, 0, '-')
+        }
+        console.log('res', res)
+    }
+    
 }
 
-console.log(test())
-
+convertString('123-  456')
