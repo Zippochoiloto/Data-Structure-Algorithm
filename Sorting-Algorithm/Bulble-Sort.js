@@ -24,4 +24,4 @@ let bubbleSort = (inputArr) => {
     return inputArr;
 };
 
-console.log(bubbbleSort([1,3,5,4,2]))
+console.log(bubbleSort([1,3,5,4,2]))
